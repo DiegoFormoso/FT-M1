@@ -10,11 +10,10 @@ function BinarioADecimal(num) {
 }
 
 function DecimalABinario(num) {
-  var numero = num;
-  var binario = (num % 2).toString();
-  while (numero > 1) {
-    numero = parseInt(numero / 2);
-    binario = (numero % 2).toString() + binario;
+  var binario = "";
+  while (num > 0) {
+    binario = (num % 2).toString() + binario;
+    num = parseInt(num / 2);
   }
   return binario;
 }
