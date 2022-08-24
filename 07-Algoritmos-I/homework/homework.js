@@ -7,20 +7,12 @@ function factorear(num) {
   // los factores por los cuales se va dividiendo a dicho número (De menor a mayor)
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
-  function esPrimo(num) {
-    if (num <= 1) return false;
-    for (let i=2; i < Math.floor(num / 2); i++) {
-      if (num % i === 0) return false; 
-    }
-    return true;
-  }
-  
   function desglozarFactorial(num) {
     var resp = [];
     if (num === 1) return [1];
     for (let i=2; i <= num; i++) {
-      if (esPrimo(i) && (num % i === 0)) {
-          return resp.concat(i, desglozarFactorial(num/i));
+        if (num % i === 0) {
+           return resp.concat(i, desglozarFactorial(num/i));
        } 
     }  
   }
@@ -35,7 +27,7 @@ function bubbleSort(array) {
   // Tu código:
 
   if (array.length == 1) return array[0];
-
+  
   var resp = [];
   let i = 1;
   while (i < array.length) {
@@ -43,8 +35,8 @@ function bubbleSort(array) {
         var actual = array[i];
         array[i] = array[i-1];
         array[i-1] = actual;
-      }
-     else
+    }
+    else
         i++;
   }         
   let ultimo = array.pop();
